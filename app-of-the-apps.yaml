@@ -9,8 +9,6 @@ spec:
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
     targetRevision: HEAD
     path: apps
-    directory:
-      include: '*.yaml'
   destination: 
     server: https://kubernetes.default.svc
     namespace: default
