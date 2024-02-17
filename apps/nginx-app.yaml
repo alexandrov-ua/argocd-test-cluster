@@ -12,7 +12,8 @@ spec:
     automated:
       prune: true
   source:
-    path: "charts/app-template"
+    path: charts
+    chart: app-template
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
     targetRevision: HEAD
     helm:
