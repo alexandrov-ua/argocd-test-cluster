@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: {{ .Values.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      # https://nickjanetakis.com/blog/binding-to-low-ports-as-a-non-root-user-with-docker-and-kubernetes
+      # securityContext:
+      #   sysctls:
+      #   - name: "net.ipv4.ip_unprivileged_port_start"
+      #     value: "0"
+      containers:
+      - name: {{ .Values.name }}
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.appPort }}
+        env: {{ .Values.configuration | toYaml | nindent 10 }}
+        {{- if .Values.configurationSecretName }}
+        envFrom:
+        - secretRef:
+            name: {{ .Values.configurationSecretName }}
+        {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}
+spec:
+  selector:
+    app: {{ .Values.name }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.appPort }}

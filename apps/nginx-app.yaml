@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-app
+  namespace: default
+spec:
+  project: default
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    chart: app-template
+    repoURL: https://github.com/alexandrov-ua/argocd-test-cluster
+    targetRevision: 0.1.*
+    helm:
+      releaseName: nginx-app
+      valuesObject:
+        replicaCount: 1
+        name: nginx-app
+        appPort: 80
+        image:
+          name: nginx
+          tag: 1.25.3
+        configuration:
+        - name: NGINX_PORT
+          value: "80"
+        - name: asd
+          value: zxc
