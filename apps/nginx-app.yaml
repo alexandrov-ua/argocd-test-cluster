@@ -12,10 +12,9 @@ spec:
     automated:
       prune: true
   source:
-    path: charts
-    chart: app-template
+    path: "charts/app-template"
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
-    targetRevision: 0.1.*
+    targetRevision: HEAD
     helm:
       releaseName: nginx-app
       valuesObject:
