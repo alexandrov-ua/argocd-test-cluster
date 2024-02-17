@@ -28,4 +28,4 @@ spec:
         - name: NGINX_PORT
           value: "80"
         - name: asd
-          value: 123
+          value: "123"
