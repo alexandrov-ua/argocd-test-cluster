@@ -14,7 +14,7 @@ spec:
   source:
     path: "charts/app-template"
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
-    targetRevision: 0.1.*
+    targetRevision: HEAD
     helm:
       releaseName: nginx-app
       valuesObject:
