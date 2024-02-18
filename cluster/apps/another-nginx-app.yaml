@@ -11,6 +11,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true
   source:
     path: "charts/app-template"
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
