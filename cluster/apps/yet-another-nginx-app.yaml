@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: yet-another-nginx-app
       valuesObject:
-        replicaCount: 1
+        replicaCount: 2
         name: yet-another-nginx-app
         appPort: 80
         image:
