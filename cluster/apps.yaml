@@ -6,7 +6,7 @@ metadata:
 spec:
   source:
     directory:
-      include: 'cluster/apps/*'
+      include: 'apps/*'
   destination: 
     server: https://kubernetes.default.svc
     namespace: default
