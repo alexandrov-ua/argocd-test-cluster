@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
     targetRevision: HEAD
-    path: apps
+    path: cluster
   destination: 
     server: https://kubernetes.default.svc
     namespace: default
