@@ -8,6 +8,10 @@ spec:
   destination:
     namespace: default
     server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
   source:
     path: "charts/app-template"
     repoURL: https://github.com/alexandrov-ua/argocd-test-cluster.git
@@ -15,7 +19,7 @@ spec:
     helm:
       releaseName: yet-another-nginx-app
       valuesObject:
-        replicaCount: 2
+        replicaCount: 1
         name: yet-another-nginx-app
         appPort: 80
         image:
