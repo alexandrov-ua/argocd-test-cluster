@@ -10,5 +10,5 @@ spec:
       containers:
       - name: my-container
         image: alpine
-        command: ["sleep 10", "echo hi"]
+        command: ["bin/sh", "-c", "echo hello"]
       restartPolicy: Never
