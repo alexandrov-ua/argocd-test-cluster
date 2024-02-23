@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-post-deploy-job
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-container
+        image: alpine
+        command: ["sleep 10", "echo hi"]
+      restartPolicy: Never
