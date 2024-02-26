@@ -24,7 +24,7 @@ spec:
         appPort: 80
         image:
           name: nginx
-          tag: 1.25.3
+          tag: 1.25.4
         configurationSecretName: nginx-app-secrets
         deployJob: true
         configuration:
