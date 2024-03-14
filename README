@@ -1,0 +1,5 @@
+Main goals:
+ 1. To have application and infrastructure separation
+ 2. To have application manifests containing all configuration keys and values.
+ 3. To have secrets along with application manifest (keys)
+ 4. To have abbility to specify the deployment type (blue-green deployment, rolling update, recreate)
