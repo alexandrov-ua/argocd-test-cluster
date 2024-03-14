@@ -37,20 +37,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: {{ .Values.appPort }}
-{{- if .Values.deployJob }}
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: my-post-deploy-job
-  annotations:
-    argocd.argoproj.io/hook: PostSync
-spec:
-  template:
-    spec:
-      containers:
-      - name: my-container
-        image: alpine
-        command: ["bin/sh", "-c", "echo hello {{ .Values.image.tag }}"]
-      restartPolicy: Never
-{{- end }}
